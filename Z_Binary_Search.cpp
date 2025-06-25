@@ -6,7 +6,7 @@ int main()
     int vectorSize, testcases;
     cin >> vectorSize >> testcases;
 
-    vector<long long int> integerVector(vectorSize);
+    vector<int> integerVector(vectorSize);
     for (int i = 0; i < testcases; i++)
     {
         cin >> integerVector[i];
@@ -17,15 +17,35 @@ int main()
         int desiredNumber;
         cin >> desiredNumber;
 
-        auto it = find(integerVector.begin(), integerVector.end(), desiredNumber);
+        int leftIndex = 0;
+        int rightIndex = vectorSize - 1;
+        int flag = 0;
 
-        if (it != integerVector.end())
+        while (leftIndex <= rightIndex)
         {
-            cout << "not found" << endl;
+            int mid = (leftIndex + rightIndex) / 2;
+            if (integerVector[mid] == desiredNumber)
+            {
+                flag = 1;
+                break;
+            }
+            else if (desiredNumber < integerVector[mid])
+            {
+                rightIndex = mid - 1;
+            }
+            else
+            {
+                leftIndex = mid + 1;
+            }
+        }
+
+        if (flag == 1)
+        {
+            cout << "found" << endl;
         }
         else
         {
-            cout << "found" << endl;
+            cout << "not found" << endl;
         }
     }
 
