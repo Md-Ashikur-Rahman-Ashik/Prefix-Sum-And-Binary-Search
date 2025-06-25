@@ -13,9 +13,9 @@ int main()
     }
 
     vector<int> sumVector(vectorSize + 1);
-    sumVector[0] = integerVector[0];
+    sumVector[1] = integerVector[1];
 
-    for (int i = 1; i <= vectorSize; i++)
+    for (int i = 2; i <= vectorSize; i++)
     {
         sumVector[i] = sumVector[i - 1] + integerVector[i];
     }
