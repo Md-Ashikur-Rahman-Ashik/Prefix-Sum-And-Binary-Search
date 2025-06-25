@@ -6,13 +6,13 @@ int main()
     int vectorSize, testcases;
     cin >> vectorSize >> testcases;
 
-    vector<int> integerVector(vectorSize + 1);
+    vector<long long int> integerVector(vectorSize + 1);
     for (int i = 1; i <= vectorSize; i++)
     {
         cin >> integerVector[i];
     }
 
-    vector<int> sumVector(vectorSize + 1);
+    vector<long long int> sumVector(vectorSize + 1);
     sumVector[1] = integerVector[1];
 
     for (int i = 2; i <= vectorSize; i++)
@@ -25,7 +25,15 @@ int main()
         int firstIndex, lastIndex;
         cin >> firstIndex >> lastIndex;
 
-        int sum = sumVector[lastIndex] - sumVector[firstIndex - 1];
+        long long int sum;
+        if (firstIndex == 0)
+        {
+            sum = sumVector[lastIndex];
+        }
+        else
+        {
+            sum = sumVector[lastIndex] - sumVector[firstIndex - 1];
+        }
 
         cout << sum << endl;
     }
