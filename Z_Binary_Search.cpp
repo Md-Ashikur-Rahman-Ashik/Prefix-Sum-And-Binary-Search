@@ -7,10 +7,12 @@ int main()
     cin >> vectorSize >> testcases;
 
     vector<int> integerVector(vectorSize);
-    for (int i = 0; i < testcases; i++)
+    for (int i = 0; i < vectorSize; i++)
     {
         cin >> integerVector[i];
     }
+
+    sort(integerVector.begin(), integerVector.end());
 
     for (int i = 0; i < testcases; i++)
     {
@@ -41,11 +43,11 @@ int main()
 
         if (flag == 1)
         {
-            cout << "found" << endl;
+            cout << " found" << endl;
         }
         else
         {
-            cout << "not found" << endl;
+            cout << " not found" << endl;
         }
     }
 
